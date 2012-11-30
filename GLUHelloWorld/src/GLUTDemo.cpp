@@ -32,16 +32,21 @@ void init() {
 	glClearColor( 0.0, 0.0, 0.0, 1.0 ); /* Set the clear color */
 }
 
+/* render the scene */
+void renderScene( void ){
+
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+	glBegin(GL_TRIANGLES);
+			glVertex3f(-0.5,-0.5,0.0);
+			glVertex3f(0.5,0.0,0.0);
+			glVertex3f(0.0,0.5,0.0);
+		glEnd();
+}
+
 /* Displays a black clear screen */
 void display() {
 	glClear( GL_COLOR_BUFFER_BIT ); /* Clear the screen with the clear color */
 	glutSwapBuffers(); /* Double buffering */
-}
-
-
-/* render the scene */
-void renderScene( void ){
-
 }
 
 /* The main function */
@@ -53,7 +58,7 @@ int main( int argc, char *argv[] ) {
 	glutInitWindowSize( WIDTH, HEIGHT );
 	glutCreateWindow( argv[0] );
 	init();
-	glutDisplayFunc( display );  /* Call back display function */
+	glutDisplayFunc( renderScene );  /* Call back display function */
 	glutMainLoop(); /* Continue drawing the scene */
 	return 0;
 }
