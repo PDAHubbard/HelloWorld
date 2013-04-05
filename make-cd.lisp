@@ -1,3 +1,4 @@
+;;;; Using tutoral from http://www.gigamonkeys.com/book/practical-a-simple-database.html
 (defun make-cd (title artist rating ripped)
   (list :title title :artist artist :rating rating :ripped ripped))
 
